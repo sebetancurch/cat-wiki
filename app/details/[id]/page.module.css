@@ -1,0 +1,37 @@
+.loader {
+  height: inherit;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.whiteRectangle {
+  background-color: #e0e0e0;
+  border-radius: 14px;
+  height: 12px;
+  width: 60px;
+}
+
+.darkRectangle {
+  background-color: #544439;
+  border-radius: 14px;
+  height: 12px;
+  width: 60px;
+}
+
+.text {
+  font-size: '16px';
+  font-weight: '700';
+  min-width: '16%';
+}
+
+.punctuation {
+  display: flex;
+}
+
+.punctuationContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
