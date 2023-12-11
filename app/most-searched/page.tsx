@@ -25,7 +25,7 @@ async function Page() {
 
   return (
     <>
-        <List cats={}/>
+        <List cats={[]}/>
     </>
   )
 }

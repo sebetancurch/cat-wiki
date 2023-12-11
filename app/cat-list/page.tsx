@@ -37,8 +37,6 @@ export default async function Page() {
 
     const cats: any[] = await getCats()
 
-    console.log(cats)
-
     return (
         <>
             <FullList cats={cats}/>
