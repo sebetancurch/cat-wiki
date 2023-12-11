@@ -3,10 +3,9 @@
 import Image from 'next/image'
 import styles from '../page.module.css'
 import { Mystery_Quest } from 'next/font/google';
-import { Autocomplete, Button, TextField } from '@mui/material';
+import { Autocomplete, Button, Chip, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { ApiKey } from '@/app.constants';
 import { useRouter } from 'next/navigation';
 
 const mysteryQuest = Mystery_Quest({ 
@@ -15,47 +14,17 @@ const mysteryQuest = Mystery_Quest({
         style: 'normal'
     });
 
-export default function MainCard () {
+export default function MainCard ({cats, images}: {cats: any[], images: any[]}) {
 
     const router = useRouter();
 
-    const [value, setValue] = useState<any | null>(null);
-
-    const [cats, setCats] =  useState<any[]>([])
-
-    const [catsImages, setCatsImages] =  useState<any[]>([])
-
-    useEffect(() =>{
-        Promise.all([
-          window.fetch('https://api.thecatapi.com/v1/breeds', {
-            method: 'GET',
-            headers: {
-              'x-api-key': ApiKey,
-            },
-          }),
-          window.fetch('https://api.thecatapi.com/v1/images/search?limit=4', {
-            method: 'GET',
-            headers: {
-              'x-api-key': ApiKey,
-            },
-          })
-        ]).then(([breedsResponse, catImagesResponse]) => {
-            return Promise.all([breedsResponse.json(), catImagesResponse.json()]);
-        }).then(([breedsData, catImagesData]) => {
-            setCats(breedsData)
-            setCatsImages(catImagesData)
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-
-    }, [])
+    const [value] = useState<any | null>(null);
 
     return (
         <>
             <div className={styles.mainCard}>
                 <div style={{fontSize: '64px'}} className={styles.kittenImage}>
-                <div style={{color: 'white', paddingTop: "10%", paddingLeft: '5%'}}>
+                <div style={{color: 'white', paddingTop: "5%", paddingLeft: '5%'}}>
                     <p style={{fontSize: '64px'}} className={mysteryQuest.className}>CatWiki</p>
                     <p style={{fontSize: '24px', fontWeight: '500'}}>Get to know more about your cat breed</p>
                     <Autocomplete
@@ -65,6 +34,18 @@ export default function MainCard () {
                             return cat.name
                         })}
                         sx={{ width: 300, borderRadius: '50px'}}
+                        renderOption={(props, option) => {
+                            return (
+                                <li {...props} key={option}>
+                                {option}
+                                </li>
+                            )
+                        }}
+                        renderTags={(tagValue, getTagProps) => {
+                            return tagValue.map((option, index) => (
+                                <Chip {...getTagProps({ index })} key={option} label={option} />
+                            ))
+                        }}
                         renderInput={(params) => (
                             <TextField {...params} sx={{backgroundColor: 'white', borderRadius: '15px'}} label="Enter your breed" />
                         )}
@@ -80,13 +61,14 @@ export default function MainCard () {
                             variant='outlined' 
                             color='inherit' 
                             size='small' 
+                            onClick={()=>{router.push('/cat-list')}}
                             endIcon={<ArrowForwardIcon />}>
                             See more
                         </Button>
                         </div>
                         <div className={styles.catsList}>
                         {
-                            catsImages.map((cat: any) => {
+                            images.map((cat: any) => {
                                 return (
                                     <div key={cat.id}>
                                         <Button
