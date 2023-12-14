@@ -1,7 +1,7 @@
 'use client'
 
 import './globals.css'
-import { Inter, Montserrat } from 'next/font/google'
+import { Inter, Montserrat, Mystery_Quest } from 'next/font/google'
 import styles from '../app/page.module.css'
 import Image from 'next/image'
 
@@ -13,12 +13,19 @@ const montserrat = Montserrat({
   style: 'normal'
 })
 
+const mysteryQuest = Mystery_Quest({ 
+  weight: '400', 
+  subsets: ['latin'],
+  style: 'normal'
+});
+
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footerContainer">
-        <p>&copy; 2023 Your Company</p>
+      <div>
+        <Image src={require("../images/CatwikiLogo.svg")} alt={''} height={42.67} width={127.72}/>
       </div>
+      <p>&copy; created by Sergio - devChallenge.io 2021</p>
     </footer>
   );
 };
@@ -42,19 +49,7 @@ export default function RootLayout({
         <main className={styles.main}>   
           {children}
         </main>
-        {/* <Footer/> */}
-        {/* <div className="overlap-group">
-          <div className="group">
-            <div className="text-wrapper-2">CatWiki</div>
-            <img className="group-2" alt="Group" src="image.png" />
-          </div>
-          <div className="text-wrapper-3">©</div>
-          <p className="created-by-username">
-            <span className="span">created by </span>
-            <span className="text-wrapper-4">username</span>
-            <span className="span"> - devChallenge.io 2021</span>
-          </p>
-        </div> */}
+        <Footer/>
       </body>
     </html>
   )

@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react';
 import CatInfo from '@/app/components/cat-info';
 
 export default function List ({ cats }: { cats: any[] }) {
@@ -10,7 +9,7 @@ export default function List ({ cats }: { cats: any[] }) {
             {
                 cats.map((cat: any) => {
                     return (
-                        <CatInfo cat={cat}/>
+                        <CatInfo key={cat.id} cat={cat}/>
                     )
                 })
             }

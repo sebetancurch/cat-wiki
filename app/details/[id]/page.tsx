@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
-import { Button } from '@mui/material';
 import { ApiKey } from '@/app.constants';
 import { ClipLoader } from "react-spinners"
+import { updateCatViews } from './api';
 
 function setPunctuation( cat: any, property: string) {
   let punctuationElement = []
@@ -25,13 +25,17 @@ function Page({ params }: { params: { id: string } }) {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() =>{
-    window.fetch('https://api.thecatapi.com/v1/images/' + params.id, {
-      method: 'GET',
-      headers: {
-        'x-api-key': ApiKey,
-      },
-    }).then((response) => {
-      return response.json();
+    Promise.all([
+      window.fetch('https://api.thecatapi.com/v1/images/' + params.id, {
+        method: 'GET',
+        headers: {
+          'x-api-key': ApiKey,
+        },
+      }),
+      updateCatViews(params.id)
+    ])
+    .then((response) => {
+      return response[0].json();
     }).then((data) => {
       setCat(data.breeds ? data.breeds[0] : null)
       setImage(data.url)
@@ -54,7 +58,7 @@ function Page({ params }: { params: { id: string } }) {
           data-testid="loader"
         />
       </div>
-      )
+    )
   } else if ( cat == null ) {
     return(
       <div style={{ textAlign: 'center', marginTop: '50px' }}>

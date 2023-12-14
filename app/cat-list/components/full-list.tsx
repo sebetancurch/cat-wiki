@@ -1,10 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import styles from '../page.module.css'
-import { Mystery_Quest } from 'next/font/google';
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
 import CatInfo from '@/app/components/cat-info';
 import { Button } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -23,7 +19,7 @@ export default function FullList ({ cats }: { cats: any[] }) {
                 {
                     cats.slice(0, showedCats).map((cat: any) => {
                         return (
-                            <CatInfo cat={cat}/>
+                            <CatInfo key={cat.id} cat={cat}/>
                         )
                     })
                 }

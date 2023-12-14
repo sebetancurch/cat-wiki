@@ -4,8 +4,11 @@ html {
 }
 
 body {
+  margin: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -20,13 +23,13 @@ a {
 }
 
 .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.footerContainer {
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 20px 20px 0 0;
 }
