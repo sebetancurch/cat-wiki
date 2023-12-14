@@ -27,7 +27,7 @@ async function getMostSearched() {
   } catch (error: any) {
     console.error('Error executing query:', error.message);
   } finally {
-    connection.end(); // Close the connection when done
+    connection.end();
   }
 }
 

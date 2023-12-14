@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import { ApiKey } from '@/app.constants';
 import { ClipLoader } from "react-spinners"
-import { updateCatViews } from './api';
+import { updateCatViews } from './update-cats';
 
 function setPunctuation( cat: any, property: string) {
   let punctuationElement = []

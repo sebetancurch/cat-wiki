@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function CatInfo ({ cat }: { cat: any }) {
 
     return (
-        <Link href={'../details/' + cat.id} style={{display: 'flex'}}>
+        <Link href={'../details/' + cat.image.id} style={{display: 'flex'}}>
             <Image
                 style={{borderRadius: '24px', margin: '50px 70px'}}
                 src={cat.image.url}
