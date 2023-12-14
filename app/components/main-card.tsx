@@ -24,36 +24,39 @@ export default function MainCard ({cats, images}: {cats: any[], images: any[]}) 
         <>
             <div className={styles.mainCard}>
                 <div style={{fontSize: '64px'}} className={styles.kittenImage}>
-                <div style={{color: 'white', paddingTop: "5%", paddingLeft: '5%'}}>
-                    <p style={{fontSize: '64px'}} className={mysteryQuest.className}>CatWiki</p>
-                    <p style={{fontSize: '24px', fontWeight: '500'}}>Get to know more about your cat breed</p>
-                    <Autocomplete
-                        value={value}
-                        id="free-solo-with-text-demo"
-                        options={cats.map((cat: any) => {
-                            return cat.name
-                        })}
-                        sx={{ width: 300, borderRadius: '50px'}}
-                        renderOption={(props, option) => {
-                            return (
-                                <li {...props} key={option}>
-                                {option}
-                                </li>
-                            )
-                        }}
-                        renderTags={(tagValue, getTagProps) => {
-                            return tagValue.map((option, index) => (
-                                <Chip {...getTagProps({ index })} key={option} label={option} />
-                            ))
-                        }}
-                        renderInput={(params) => (
-                            <TextField {...params} sx={{backgroundColor: 'white', borderRadius: '15px'}} label="Enter your breed" />
-                        )}
-                        />
-                </div>
+                    <div style={{color: 'white', paddingTop: "5%", paddingLeft: '5%'}}>
+                        <div style={{display:"flex"}}>
+                            <p style={{fontSize: '64px'}} className={mysteryQuest.className}>CatWiki</p>
+                            {/* <Image src={require("../../images/CatImage.svg")} alt={''} height={42.67} width={127.72}/> */}
+                        </div>
+                        <p style={{fontSize: '24px', fontWeight: '500'}}>Get to know more about your cat breed</p>
+                        <Autocomplete
+                            value={value}
+                            id="free-solo-with-text-demo"
+                            options={cats.map((cat: any) => {
+                                return cat.name
+                            })}
+                            sx={{ width: 300, borderRadius: '50px'}}
+                            renderOption={(props, option) => {
+                                return (
+                                    <li {...props} key={option}>
+                                    {option}
+                                    </li>
+                                )
+                            }}
+                            renderTags={(tagValue, getTagProps) => {
+                                return tagValue.map((option, index) => (
+                                    <Chip {...getTagProps({ index })} key={option} label={option} />
+                                ))
+                            }}
+                            renderInput={(params) => (
+                                <TextField {...params} sx={{backgroundColor: 'white', borderRadius: '15px'}} label="Enter your breed" />
+                            )}
+                            />
+                    </div>
                 </div>
                 <div className={styles.mainInfo}>
-                    <div style={{margin: '10%'}}>
+                    <div style={{margin: '6%'}}>
                         <p style={{fontWeight: 500, fontSize: '18px'}}>Most searched Breeds</p>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
                         <p style={{fontWeight: 700, fontSize: '48px'}}>66+ Breeds for you to discober</p>

@@ -41,6 +41,16 @@
     justify-content: space-between;
 }
 
+.catInfoLink {
+    display: flex;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.catInfoLink:hover {
+    background-color: #DCDCDC;
+}
+
 @media only screen and (max-width: 400px) {
 
     .mainCard {

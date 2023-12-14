@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div>
-        <Image src={require("../images/CatwikiLogo.svg")} alt={''} height={42.67} width={127.72}/>
+        <Image src={require("../images/LogoWhite.svg")} alt={''} height={42.67} width={127.72}/>
       </div>
       <p>&copy; created by Sergio - devChallenge.io 2021</p>
     </footer>
