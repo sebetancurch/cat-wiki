@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import styles from '../page.module.css'
 import { Mystery_Quest } from 'next/font/google';
-import { Autocomplete, Button, Chip, TextField } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Autocomplete, Button, Chip, Icon, Link, TextField } from '@mui/material';
+import React, { useState } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useRouter } from 'next/navigation';
+import { Search } from '@mui/icons-material';
 
 const mysteryQuest = Mystery_Quest({ 
         weight: '400', 
@@ -18,7 +19,7 @@ export default function MainCard ({cats, images}: {cats: any[], images: any[]}) 
 
     const router = useRouter();
 
-    const [value] = useState<any | null>(null);
+    const [selectedCat, setSelectedCat] = useState<string | null>('');
 
     return (
         <>
@@ -31,16 +32,27 @@ export default function MainCard ({cats, images}: {cats: any[], images: any[]}) 
                         </div>
                         <p style={{fontSize: '24px', fontWeight: '500'}}>Get to know more about your cat breed</p>
                         <Autocomplete
-                            value={value}
                             id="free-solo-with-text-demo"
                             options={cats.map((cat: any) => {
                                 return cat.name
                             })}
-                            sx={{ width: 300, borderRadius: '50px'}}
+                            onChange={(event: any, newValue: string | null) => {
+                                setSelectedCat(cats.find((cat) => cat.name == newValue).reference_image_id);
+                            }}
+                            sx={{
+                                display: 'inline-block',
+                                '& input': {
+                                    width: 300,
+                                    height: 50,
+                                    borderRadius: '50px 0 0 50px',
+                                    color: (theme) =>
+                                    theme.palette.getContrastText(theme.palette.background.paper),
+                                },
+                            }}
                             renderOption={(props, option) => {
                                 return (
                                     <li {...props} key={option}>
-                                    {option}
+                                        {option}
                                     </li>
                                 )
                             }}
@@ -50,9 +62,24 @@ export default function MainCard ({cats, images}: {cats: any[], images: any[]}) 
                                 ))
                             }}
                             renderInput={(params) => (
-                                <TextField {...params} sx={{backgroundColor: 'white', borderRadius: '15px'}} label="Enter your breed" />
+                                <div style={{ display: 'flex', alignItems: 'center', height: '50px' }} ref={params.InputProps.ref}>
+                                    <input style={{padding: '0'}} type="text" {...params.inputProps} />
+                                    <Button
+                                        style={{ 
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            background: 'white', 
+                                            borderRadius: '0 50px 50px 0', 
+                                            height: '50px', 
+                                            width: '50px', 
+                                            justifyContent: 'center' }}
+                                        disabled={selectedCat == ''}
+                                        href={'../details/' + selectedCat}>
+                                        <Search color="action"/>
+                                    </Button>
+                                </div>
                             )}
-                            />
+                        />
                     </div>
                 </div>
                 <div className={styles.mainInfo}>
@@ -106,10 +133,11 @@ export default function MainCard ({cats, images}: {cats: any[], images: any[]}) 
                 </p>
                 <Button sx={{border: 0, height: 'min-content', ":hover": {bgcolor: "inherit"}}}
                     variant='outlined' 
-                    color='inherit' 
-                    size='small' 
+                    color='inherit'
+                    size='small'
+                    onClick={()=>{router.push('/most-searched')}}
                     endIcon={<ArrowForwardIcon />}>
-                    See more
+                    See most searched
                 </Button>
                 </div>
                 <div style={{flex: '1'}}>

@@ -1,0 +1,6 @@
+.loader {
+  height: inherit;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,6 +4,7 @@ import './globals.css'
 import { Inter, Montserrat, Mystery_Quest } from 'next/font/google'
 import styles from '../app/page.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,9 +24,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div>
-        <Image src={require("../images/LogoWhite.svg")} alt={''} height={42.67} width={127.72}/>
+        <Image style={{marginLeft: '80px'}} src={require("../images/LogoWhite.svg")} alt={''} height={42.67} width={127.72}/>
       </div>
-      <p>&copy; created by Sergio - devChallenge.io 2021</p>
+      <p style={{marginRight: '32px'}}>&copy; created by Sergio - devChallenge.io 2021</p>
     </footer>
   );
 };
@@ -43,9 +44,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.className}>
       <body className={inter.className}>
-        <div className={styles.title}>
+        <Link href={"../"} className={styles.title}>
           <Image src={require("../images/CatwikiLogo.svg")} alt={''} height={42.67} width={127.72}/>
-        </div>
+        </Link>
         <main className={styles.main}>   
           {children}
         </main>

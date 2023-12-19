@@ -37,8 +37,10 @@ export async function getImages() {
 
 export default async function Home() {
 
-  const cats: any[] = await getCats()
-  const images: any[] = await getImages()
+  const catsData = getCats()
+  const imagesData = getImages()
+
+  const [cats, images] = await Promise.all([catsData, imagesData])
 
   return (
     <>
