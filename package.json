@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "dev:inspect": "npm --node-options=--inspect=0.0.0.0:9229 run dev"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -28,5 +27,9 @@
     "react-dom": "18.2.0",
     "react-spinners": "^0.13.8",
     "typescript": "5.0.4"
+},
+  "devDependencies": {
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4"
   }
 }
