@@ -1,0 +1,6 @@
+.title {
+    display: flex;
+    margin-top: 36px;
+    margin-left: 10%;
+    width: fit-content;
+}

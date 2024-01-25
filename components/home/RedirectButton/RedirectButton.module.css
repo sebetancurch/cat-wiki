@@ -1,0 +1,16 @@
+.button {
+    border: 0;
+    padding: 0;
+    height: min-content;
+    border-color: inherit;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0rem 1rem;
+}
+
+.link:hover {
+    background-color: inherit;
+}

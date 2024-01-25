@@ -1,0 +1,8 @@
+.link {
+    padding: 0;
+    border-radius: 24px;
+}
+
+.image {
+    border-radius: inherit;
+}

@@ -18,7 +18,10 @@
     "@types/react": "18.2.5",
     "@types/react-dom": "18.2.4",
     "express": "^4.18.2",
+    "firebase": "^10.7.1",
+    "firebase-admin": "^12.0.0",
     "isomorphic-unfetch": "^4.0.2",
+    "lodash.clonedeep": "^4.5.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
     "net": "^1.0.2",
@@ -27,8 +30,9 @@
     "react-dom": "18.2.0",
     "react-spinners": "^0.13.8",
     "typescript": "5.0.4"
-},
+  },
   "devDependencies": {
+    "@types/lodash.clonedeep": "^4.5.9",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4"
   }

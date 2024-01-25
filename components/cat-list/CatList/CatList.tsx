@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useState } from 'react';
-import CatInfo from '@/app/components/cat-info';
+import CatInfo from '@/components/shared/CatInfo/CatInfo';
 import { Button } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-export default function FullList ({ cats }: { cats: any[] }) {
+export default function CatList ({ cats }: { cats: any[] }) {
 
     const [showedCats, setShowedCats] = useState<number>(10)
 
@@ -31,7 +31,6 @@ export default function FullList ({ cats }: { cats: any[] }) {
 
     return (
         <>
-            <p style={{fontWeight: '700', fontSize: '36px'}}>List of breeds</p>
             <div>
                 {
                     cats.slice(0, showedCats).map((cat: any) => {

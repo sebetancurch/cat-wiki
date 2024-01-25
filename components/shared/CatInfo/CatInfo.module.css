@@ -1,0 +1,9 @@
+.catInfoLink {
+    display: flex;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.catInfoLink:hover {
+    background-color: #DCDCDC;
+}

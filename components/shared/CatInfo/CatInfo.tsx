@@ -3,12 +3,12 @@
 import Image from 'next/image'
 import React from 'react';
 import Link from 'next/link';
-import styles from '../page.module.css'
+import styles from './CatInfo.module.css'
 
 export default function CatInfo ({ cat }: { cat: any }) {
 
     return (
-        <Link href={'../details/' + cat.image.id} className={styles.catInfoLink}>
+        <Link href={'../details/' + cat.id} className={styles.catInfoLink}>
             <Image
                 style={{borderRadius: '24px', margin: '30px 10px'}}
                 src={cat.image?.url}
