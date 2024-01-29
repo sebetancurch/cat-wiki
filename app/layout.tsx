@@ -1,5 +1,5 @@
 import './globals.css'
-import { Inter, Montserrat, Mystery_Quest } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 import styles from './page.module.css'
 import { Footer } from '@/components/shared/Footer/Footer'
 import { Header } from '@/components/shared/Header/Header'
@@ -25,11 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.className}>
       <body className={inter.className}>
-        <Header/>
-        <main className={styles.main}>   
+        <main className={styles.main}>  
+          <Header/> 
           {children}
+          <Footer/>
         </main>
-        <Footer/>
       </body>
     </html>
   )

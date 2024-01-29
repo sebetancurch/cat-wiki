@@ -1,19 +1,17 @@
 .main {
     flex: 1;
     height: 100dvh;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 10% 0 10%;
 }
 
 .mainCard {
-    height: 1250px;
+    height: max-content;
     background-color: #E3E1DC;
     border-radius: 15px;
     margin-top: 10px;
 }
 
 .kittenImage{
-    height: 50%;
     width: 100%;
     background-image: url('../public/images/HeroImagemd.png');
     background-position: center;
@@ -24,7 +22,6 @@
 }
 
 .mainInfo{
-    height: 50%;
     width: 100%;
 }
 
@@ -34,20 +31,29 @@
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 400px) {
+.collague {
+    display: flex; 
+    margin: 4rem;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .main {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 
     .mainCard {
-        position: absolute;
-        width: 80%;
-        height: 600px;
-        background-color: #E3E1DC;
-        border-radius: 15px;
         margin-top: 99px;
     }
 
     .kittenImage{
-        height: auto;
         background-image: url('../public/images/HeroImagesm.png');
         background-size: cover;
+    }
+
+    .collague {
+        flex-direction: column;
+        margin: 0;
     }
 }

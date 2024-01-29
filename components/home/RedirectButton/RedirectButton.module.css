@@ -14,3 +14,10 @@
 .link:hover {
     background-color: inherit;
 }
+
+@media only screen and (max-width: 1000px) {
+
+    .link {
+        display: none;
+    }
+}

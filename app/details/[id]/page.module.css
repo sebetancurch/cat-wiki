@@ -1,3 +1,8 @@
+.infoGrid {
+  display: flex; 
+  justify-content: space-evenly;
+}
+
 .loader {
   height: inherit;
   display: grid;
@@ -34,4 +39,13 @@
   justify-content: space-between;
   gap: 10px;
   align-items: center;
+}
+
+@media only screen and (max-width: 850px) {
+
+  .infoGrid {
+    max-width: none;
+    flex-direction: column;
+    align-items: center;
+  }
 }

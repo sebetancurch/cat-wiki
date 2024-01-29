@@ -5,7 +5,6 @@ import { RedirectButton } from '@/components/home/RedirectButton/RedirectButton'
 import { CatsCollague } from '@/components/home/CatsCollague/CatsCollague';
 import { CatImageLink } from '@/components/home/CatImageLink/CatImageLink';
 import { getCats } from '@/services/cats';
-import { getImages } from '@/services/images';
 
 const mysteryQuest = Mystery_Quest({ 
   weight: '400', 
@@ -21,7 +20,7 @@ export default async function Home() {
     <>
         <div className={styles.mainCard}>
             <div style={{fontSize: '64px'}} className={styles.kittenImage}>
-                <div style={{color: 'white', paddingTop: "5%", paddingLeft: '5%'}}>
+                <div style={{color: 'white', padding: '5%'}}>
                     <div style={{display:"flex"}}>
                         <p style={{fontSize: '64px'}} className={mysteryQuest.className}>CatWiki</p>
                         {/* <Image src={require("../../images/CatImage.svg")} alt={''} height={42.67} width={127.72}/> */}
@@ -31,7 +30,7 @@ export default async function Home() {
                 </div>
             </div>
             <div className={styles.mainInfo}>
-                <div style={{margin: '6%'}}>
+                <div style={{padding: '6%'}}>
                     <p style={{fontWeight: 500, fontSize: '18px'}}>Most searched Breeds</p>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
                     <p style={{fontWeight: 700, fontSize: '48px'}}>66+ Breeds for you to discober</p>
@@ -52,17 +51,17 @@ export default async function Home() {
                 </div>
             </div>
         </div>
-        <div style={{display: 'flex', margin: '100px'}}>
+        <div className={styles.collague}>
             <div style={{flex: '1'}}>
-            <p style={{fontWeight: 700, fontSize: '48px'}}>
-                Why should you have a cat?
-            </p>
-            <p style={{fontWeight: 500, fontSize: '18px'}}>
-                Having a cat around you can actually trigger the
-                realise of claiming chemicals  in your body wich
-                lower your stress and anxiety levels
-            </p>
-            <RedirectButton href={'/most-searched'}/>
+                <p style={{fontWeight: 700, fontSize: '48px'}}>
+                    Why should you have a cat?
+                </p>
+                <p style={{fontWeight: 500, fontSize: '18px'}}>
+                    Having a cat around you can actually trigger the
+                    realise of claiming chemicals  in your body wich
+                    lower your stress and anxiety levels
+                </p>
+                <RedirectButton href={'/most-searched'}/>
             </div>
             <CatsCollague />
         </div>

@@ -37,3 +37,6 @@ next-env.d.ts
 # chalenge info
 /images
 README.md
+
+# env variables
+.env
