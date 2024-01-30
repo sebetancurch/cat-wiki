@@ -41,6 +41,16 @@
   align-items: center;
 }
 
+@media only screen and (max-width: 1300px) {
+  .whiteRectangle {
+    width: 40px;
+  }
+  
+  .darkRectangle {
+    width: 40px;
+  }
+}
+
 @media only screen and (max-width: 850px) {
 
   .infoGrid {

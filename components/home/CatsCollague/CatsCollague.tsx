@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const CatsCollague = () => {
     return (
         <div style={{flex: '1'}}>
-            <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+            <div style={{display: 'flex', justifyContent: 'center', gap: '1rem'}}>
                 <div style={{display: 'flex',flexDirection: 'column', alignItems: 'flex-end'}}>           
                     <Image
                         style={{borderRadius: '24px'}}

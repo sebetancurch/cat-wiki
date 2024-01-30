@@ -32,7 +32,7 @@ async function Page({ params }: { params: { id: string } }) {
     }
     return (
       <div id={property} className={styles.punctuation}>
-          <p style={{minWidth: '19%', fontWeight: '700'}}>{property.replace('_', ' ')}</p>
+          <p style={{minWidth: '9rem', fontWeight: '700'}}>{property.replace('_', ' ')}</p>
           <div className={styles.punctuationContainer}>
             {punctuationElement}
           </div>

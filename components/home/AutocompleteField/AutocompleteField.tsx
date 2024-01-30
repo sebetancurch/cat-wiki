@@ -3,6 +3,13 @@
 import { Autocomplete, Button, Chip } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import { useState } from 'react';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+    weight: '500', 
+    subsets: ['latin'],
+    style: 'normal'
+  })
 
 export const AutocompleteField = ({ cats }: {cats: any[]}) => {
 
@@ -15,7 +22,7 @@ export const AutocompleteField = ({ cats }: {cats: any[]}) => {
                 return cat.name
             })}
             onChange={(event: any, newValue: string | null) => {
-                setSelectedCat(cats.find((cat) => cat.name == newValue).id);
+                setSelectedCat(cats.find((cat) => cat.name == newValue)?.id || ' ');
             }}
             sx={{
                 display: 'inline-block',
@@ -23,8 +30,20 @@ export const AutocompleteField = ({ cats }: {cats: any[]}) => {
                     width: 300,
                     height: 50,
                     borderRadius: '50px 0 0 50px',
-                    color: (theme) =>
-                    theme.palette.getContrastText(theme.palette.background.paper),
+                    padding: '0 0 0 20px',
+                    border: 'none',
+                    fontWeight: '500',
+                    fontSize: '18px',
+                    '&.focused': {
+                        borderColor: 'none',
+                        boxShadow: 0,
+                    },
+                    '&:hover': {
+                        borderColor: 'none',
+                    },
+                    '&:focus-visible': {
+                        outline: 0,
+                    },
                 },
             }}
             renderOption={(props, option) => {
@@ -41,7 +60,7 @@ export const AutocompleteField = ({ cats }: {cats: any[]}) => {
             }}
             renderInput={(params) => (
                 <div style={{ display: 'flex', alignItems: 'center', height: '50px' }} ref={params.InputProps.ref}>
-                    <input style={{padding: '10px'}} type="text" {...params.inputProps} />
+                    <input type="text" {...params.inputProps} />
                     <Button
                         style={{ 
                             display: 'flex', 
@@ -49,8 +68,8 @@ export const AutocompleteField = ({ cats }: {cats: any[]}) => {
                             background: 'white', 
                             borderRadius: '0 50px 50px 0', 
                             height: '50px', 
-                            width: '50px', 
-                            justifyContent: 'center' }}
+                            width: '50px',
+                            justifyContent: 'center'}}
                         disabled={selectedCat == ''}
                         href={'../details/' + selectedCat}>
                         <Search color="action"/>
