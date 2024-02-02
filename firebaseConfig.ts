@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAoxsfZPyScDPCqCKZi0w2-DDIskdr9lxo",
+  apiKey: process.env.FIREBASE_API_KEY || "",
   authDomain: "cat-wiki-407422.firebaseapp.com",
   databaseURL: "https://cat-wiki-407422-default-rtdb.firebaseio.com",
   projectId: "cat-wiki-407422",
