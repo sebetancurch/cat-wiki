@@ -8,7 +8,7 @@ import styles from './CatInfo.module.css'
 export default function CatInfo ({ cat }: { cat: any }) {
 
     return (
-        <Link href={'../details/' + cat.id} className={styles.catInfoLink}>
+        <Link href={'/details/' + cat.id} className={styles.catInfoLink}>
             <Image
                 style={{borderRadius: '24px', margin: '30px 10px'}}
                 src={cat.image?.url}

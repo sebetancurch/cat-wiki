@@ -3,7 +3,6 @@
 import { Autocomplete, Button, Chip } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import { useState } from 'react';
-import { Montserrat } from 'next/font/google';
 
 export const AutocompleteField = ({ cats }: {cats: any[]}) => {
 
@@ -65,7 +64,7 @@ export const AutocompleteField = ({ cats }: {cats: any[]}) => {
                             width: '50px',
                             justifyContent: 'center'}}
                         disabled={selectedCat == ''}
-                        href={'../details/' + selectedCat}>
+                        href={'/details/' + selectedCat}>
                         <Search color="action"/>
                     </Button>
                 </div>
