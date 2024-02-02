@@ -5,12 +5,6 @@ import { Search } from '@mui/icons-material';
 import { useState } from 'react';
 import { Montserrat } from 'next/font/google';
 
-const montserrat = Montserrat({
-    weight: '500', 
-    subsets: ['latin'],
-    style: 'normal'
-  })
-
 export const AutocompleteField = ({ cats }: {cats: any[]}) => {
 
     const [selectedCat, setSelectedCat] = useState<string | null>('');
